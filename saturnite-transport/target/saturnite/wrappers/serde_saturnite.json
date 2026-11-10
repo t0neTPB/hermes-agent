@@ -1,0 +1,17 @@
+{
+  "crate_name": "serde",
+  "functions": [
+    {
+      "name": "ser_Serializer_new",
+      "symbol": "sat_serde_ser_Serializer_new",
+      "params": [],
+      "ret": "pointer"
+    },
+    {
+      "name": "de_Deserializer_new",
+      "symbol": "sat_serde_de_Deserializer_new",
+      "params": ["c_str"],
+      "ret": "pointer"
+    }
+  ]
+}

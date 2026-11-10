@@ -1,0 +1,23 @@
+{
+  "crate_name": "tracing-subscriber",
+  "functions": [
+    {
+      "name": "fmt_init",
+      "symbol": "sat_tracing_subscriber_fmt_init",
+      "params": [],
+      "ret": "i64"
+    },
+    {
+      "name": "fmt_layer_new",
+      "symbol": "sat_tracing_subscriber_fmt_layer_new",
+      "params": [],
+      "ret": "pointer"
+    },
+    {
+      "name": "Registry_with",
+      "symbol": "sat_tracing_subscriber_Registry_with",
+      "params": ["pointer", "pointer"],
+      "ret": "pointer"
+    }
+  ]
+}

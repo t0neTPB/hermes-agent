@@ -1,0 +1,59 @@
+{
+  "crate_name": "tokio",
+  "functions": [
+    {
+      "name": "runtime_Builder_new_multi_thread",
+      "symbol": "sat_tokio_runtime_Builder_new_multi_thread",
+      "params": [],
+      "ret": "pointer"
+    },
+    {
+      "name": "runtime_Builder_enable_all",
+      "symbol": "sat_tokio_runtime_Builder_enable_all",
+      "params": ["pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "runtime_Builder_build",
+      "symbol": "sat_tokio_runtime_Builder_build",
+      "params": ["pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "runtime_Runtime_block_on",
+      "symbol": "sat_tokio_runtime_Runtime_block_on",
+      "params": ["pointer", "pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "net_TcpListener_bind",
+      "symbol": "sat_tokio_net_TcpListener_bind",
+      "params": ["c_str"],
+      "ret": "pointer"
+    },
+    {
+      "name": "net_TcpListener_accept",
+      "symbol": "sat_tokio_net_TcpListener_accept",
+      "params": ["pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "spawn",
+      "symbol": "sat_tokio_spawn",
+      "params": ["pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "time_sleep",
+      "symbol": "sat_tokio_time_sleep",
+      "params": ["i64"],
+      "ret": "pointer"
+    },
+    {
+      "name": "task_JoinHandle_await",
+      "symbol": "sat_tokio_task_JoinHandle_await",
+      "params": ["pointer"],
+      "ret": "pointer"
+    }
+  ]
+}

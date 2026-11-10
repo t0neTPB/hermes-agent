@@ -1,0 +1,28 @@
+name: saturnite
+label: "Saturnite Transport"
+emoji: "🪐"
+description: "Narrow transport adapter for Saturnite gateway integration"
+requires_env:
+  SATURNITE_TRANSPORT_URL:
+    description: "URL of the Saturnite transport server (e.g., ws://127.0.0.1:8765)"
+    password: false
+    url: false
+    required: true
+optional_env:
+  SATURNITE_TRANSPORT_TIMEOUT:
+    description: "Transport connection timeout in seconds"
+    password: false
+    url: false
+    required: false
+    default: "30"
+  SATURNITE_RECONNECT_INTERVAL:
+    description: "Reconnection interval in seconds"
+    password: false
+    url: false
+    required: false
+    default: "5"
+platform_hint: |
+  You are connected via the Saturnite transport adapter. Messages are routed through a
+  native Saturnite transport layer that handles WebSocket connections and message framing.
+  The transport uses JSON-over-WebSocket for message serialization.
+register: "plugins.platforms.saturnite.adapter:register"

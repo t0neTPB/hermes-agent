@@ -1,0 +1,150 @@
+module hermes_transport
+
+// Rust ecosystem interop for transport layer
+// Uses hybrid backend (LLVM + Rust) with auto-generated wrappers
+// To build: saturn build --release
+// Requires: wrapper metadata for tokio, tokio-tungstenite, tungstenite, serde, serde_json, uuid, anyhow, reqwest
+
+use rust:tokio
+use rust:tokio_tungstenite as tokio_tungstenite
+use rust:tungstenite
+use rust:serde
+use rust:serde_json
+use rust:uuid
+use rust:anyhow
+use rust:reqwest
+
+struct TransportConfig:
+    host: text
+    port: number
+    hermes_adapter_url: text
+
+struct HermesMessage:
+    message_id: text
+    session_id: text
+    platform: text
+    content: text
+    message_type: text
+    timestamp: text
+    metadata: dict<text, text>
+
+struct HermesResponse:
+    message_id: text
+    status: text
+    content: text
+    error: text
+
+fn serialize_hermes_message(msg: HermesMessage) -> text:
+    give serde_json::to_string(msg)
+
+fn deserialize_hermes_message(data: text) -> HermesMessage:
+    match serde_json::from_str(data):
+        ok(msg) -> give msg
+        err(e) -> raise "Failed to deserialize: {e}"
+
+fn serialize_hermes_response(resp: HermesResponse) -> text:
+    give serde_json::to_string(resp)
+
+fn deserialize_hermes_response(data: text) -> HermesResponse:
+    match serde_json::from_str(data):
+        ok(resp) -> give resp
+        err(e) -> raise "Failed to deserialize response: {e}"
+
+fn main() -> number:
+    let config = TransportConfig:
+        host: "127.0.0.1"
+        port: 8765
+        hermes_adapter_url: "http://127.0.0.1:8080"
+
+    say "Starting Hermes-Saturnite transport server on {config.host}:{config.port}"
+
+    let rt = tokio::runtime::Builder::new_multi_thread()
+        .enable_all()
+        .build()
+        .expect("Failed to create runtime")
+
+    rt.block_on(async move:
+        let listener = tokio::net::TcpListener::bind("{config.host}:{config.port}").await
+            .expect("Failed to bind TCP listener")
+
+        say "Transport server listening on {config.host}:{config.port}"
+
+        loop:
+            let (stream, addr) = listener.accept().await
+                .expect("Failed to accept connection")
+
+            say "New connection from {addr}"
+
+            tokio::spawn(async move:
+                handle_connection(stream).await
+            )
+    )
+
+    give 0
+
+async fn handle_connection(stream: tokio::net::TcpStream) -> anyhow::Result<()>:
+    let ws_stream = tokio_tungstenite::accept_async(stream).await?
+    let (mut ws_sender, mut ws_receiver) = ws_stream.split()
+
+    loop:
+        match ws_receiver.next().await:
+            Some(Ok(msg)) ->
+                match msg:
+                    tungstenite::Message::Text(text) ->
+                        say "Received: {text}"
+
+                        let response = handle_inbound_message(text).await
+                        let response_text = serialize_hermes_response(response)
+                        ws_sender.send(tungstenite::Message::Text(response_text)).await?
+                    tungstenite::Message::Binary(data) ->
+                        say "Received binary data: {data.length} bytes"
+                    tungstenite::Message::Ping(data) ->
+                        ws_sender.send(tungstenite::Message::Pong(data)).await?
+                    tungstenite::Message::Pong(_) ->
+                        pass
+                    tungstenite::Message::Close(_) ->
+                        say "Connection closed"
+                        break
+                    tungstenite::Message::Frame(_) ->
+                        pass
+            Some(Err(e)) ->
+                say "WebSocket error: {e}"
+                break
+            None ->
+                say "Connection closed"
+                break
+
+    give Ok(())
+
+async fn handle_inbound_message(text: text) -> HermesResponse:
+    match deserialize_hermes_message(text):
+        msg ->
+            say "Handling message for session: {msg.session_id}"
+
+            // Forward to Hermes adapter via HTTP
+            let result = forward_to_hermes(msg).await
+
+            match result:
+                Ok(resp) -> give resp
+                Err(e) ->
+                    give HermesResponse:
+                        message_id: uuid::Uuid::new_v4().to_string()
+                        status: "error"
+                        content: ""
+                        error: "Failed to forward to Hermes: {e}"
+
+async fn forward_to_hermes(msg: HermesMessage) -> anyhow::Result<HermesResponse>:
+    let client = reqwest::Client::new()
+    let response = client.post("http://127.0.0.1:8080/hermes/inbound")
+        .json(msg)
+        .send()
+        .await?
+
+    let status = response.status()
+    let body = response.text().await?
+
+    if status.is_success():
+        let resp = deserialize_hermes_response(body)
+        give Ok(resp)
+    else:
+        give Err(anyhow::anyhow!("Hermes returned {status}: {body}"))

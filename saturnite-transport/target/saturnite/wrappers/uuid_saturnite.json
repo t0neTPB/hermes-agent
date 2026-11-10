@@ -1,0 +1,23 @@
+{
+  "crate_name": "uuid",
+  "functions": [
+    {
+      "name": "Uuid_new_v4",
+      "symbol": "sat_uuid_Uuid_new_v4",
+      "params": [],
+      "ret": "pointer"
+    },
+    {
+      "name": "Uuid_to_string",
+      "symbol": "sat_uuid_Uuid_to_string",
+      "params": ["pointer"],
+      "ret": "c_str"
+    },
+    {
+      "name": "Uuid_parse",
+      "symbol": "sat_uuid_Uuid_parse",
+      "params": ["c_str"],
+      "ret": "pointer"
+    }
+  ]
+}

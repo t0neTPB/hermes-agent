@@ -1,0 +1,29 @@
+{
+  "crate_name": "anyhow",
+  "functions": [
+    {
+      "name": "Result_ext_context",
+      "symbol": "sat_anyhow_Result_ext_context",
+      "params": ["pointer", "c_str"],
+      "ret": "pointer"
+    },
+    {
+      "name": "anyhow_macro",
+      "symbol": "sat_anyhow_anyhow_macro",
+      "params": ["c_str"],
+      "ret": "pointer"
+    },
+    {
+      "name": "Error_new",
+      "symbol": "sat_anyhow_Error_new",
+      "params": ["c_str"],
+      "ret": "pointer"
+    },
+    {
+      "name": "Error_chain",
+      "symbol": "sat_anyhow_Error_chain",
+      "params": ["pointer"],
+      "ret": "c_str"
+    }
+  ]
+}

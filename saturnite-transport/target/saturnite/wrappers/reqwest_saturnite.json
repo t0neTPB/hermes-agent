@@ -1,0 +1,53 @@
+{
+  "crate_name": "reqwest",
+  "functions": [
+    {
+      "name": "Client_new",
+      "symbol": "sat_reqwest_Client_new",
+      "params": [],
+      "ret": "pointer"
+    },
+    {
+      "name": "Client_post",
+      "symbol": "sat_reqwest_Client_post",
+      "params": ["pointer", "c_str"],
+      "ret": "pointer"
+    },
+    {
+      "name": "RequestBuilder_json",
+      "symbol": "sat_reqwest_RequestBuilder_json",
+      "params": ["pointer", "pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "RequestBuilder_send",
+      "symbol": "sat_reqwest_RequestBuilder_send",
+      "params": ["pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "Response_status",
+      "symbol": "sat_reqwest_Response_status",
+      "params": ["pointer"],
+      "ret": "i64"
+    },
+    {
+      "name": "Response_is_success",
+      "symbol": "sat_reqwest_Response_is_success",
+      "params": ["pointer"],
+      "ret": "i64"
+    },
+    {
+      "name": "Response_text",
+      "symbol": "sat_reqwest_Response_text",
+      "params": ["pointer"],
+      "ret": "c_str"
+    },
+    {
+      "name": "StatusCode_as_u16",
+      "symbol": "sat_reqwest_StatusCode_as_u16",
+      "params": ["i64"],
+      "ret": "i64"
+    }
+  ]
+}

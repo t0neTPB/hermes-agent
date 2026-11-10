@@ -1,0 +1,59 @@
+{
+  "crate_name": "serde_json",
+  "functions": [
+    {
+      "name": "to_string",
+      "symbol": "sat_serde_json_to_string",
+      "params": ["pointer"],
+      "ret": "c_str"
+    },
+    {
+      "name": "from_str",
+      "symbol": "sat_serde_json_from_str",
+      "params": ["c_str"],
+      "ret": "pointer"
+    },
+    {
+      "name": "to_string_pretty",
+      "symbol": "sat_serde_json_to_string_pretty",
+      "params": ["pointer"],
+      "ret": "c_str"
+    },
+    {
+      "name": "Value_new_object",
+      "symbol": "sat_serde_json_Value_new_object",
+      "params": [],
+      "ret": "pointer"
+    },
+    {
+      "name": "Value_insert",
+      "symbol": "sat_serde_json_Value_insert",
+      "params": ["pointer", "c_str", "pointer"],
+      "ret": "i64"
+    },
+    {
+      "name": "Value_get",
+      "symbol": "sat_serde_json_Value_get",
+      "params": ["pointer", "c_str"],
+      "ret": "pointer"
+    },
+    {
+      "name": "Value_as_str",
+      "symbol": "sat_serde_json_Value_as_str",
+      "params": ["pointer"],
+      "ret": "c_str"
+    },
+    {
+      "name": "Value_as_i64",
+      "symbol": "sat_serde_json_Value_as_i64",
+      "params": ["pointer"],
+      "ret": "i64"
+    },
+    {
+      "name": "Value_as_bool",
+      "symbol": "sat_serde_json_Value_as_bool",
+      "params": ["pointer"],
+      "ret": "i64"
+    }
+  ]
+}

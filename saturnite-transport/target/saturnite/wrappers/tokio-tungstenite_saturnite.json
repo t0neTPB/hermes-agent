@@ -1,0 +1,29 @@
+{
+  "crate_name": "tokio-tungstenite",
+  "functions": [
+    {
+      "name": "accept_async",
+      "symbol": "sat_tokio_tungstenite_accept_async",
+      "params": ["pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "WebSocketStream_split",
+      "symbol": "sat_tokio_tungstenite_WebSocketStream_split",
+      "params": ["pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "WebSocketStream_sink_send",
+      "symbol": "sat_tokio_tungstenite_WebSocketStream_sink_send",
+      "params": ["pointer", "pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "WebSocketStream_stream_next",
+      "symbol": "sat_tokio_tungstenite_WebSocketStream_stream_next",
+      "params": ["pointer"],
+      "ret": "pointer"
+    }
+  ]
+}

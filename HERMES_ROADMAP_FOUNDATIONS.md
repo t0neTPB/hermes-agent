@@ -11,7 +11,7 @@ for the seven-phase roadmap. It is derived from the actual source code at commit
 | Rank | Phase | Difficulty | Status |
 |------|-------|------------|--------|
 | 1 | Adaptive Personality — initial version | 2/5 | ✅ **IMPLEMENTED** |
-| 2 | Saturnite Gateway Integration — narrow adapter | 3/5 | 📐 Prepared |
+| 2 | Saturnite Gateway Integration — narrow adapter | 3/5 | ⚠️ **PARTIAL** |
 | 3 | Shared Inference Scheduler | 3.5/5 | 📐 Prepared |
 | 4 | Structured Experience Collection | 4/5 | 📐 Prepared |
 | 5 | CUA Interaction Learning | 4/5 | 📐 Prepared |

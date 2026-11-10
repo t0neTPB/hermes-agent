@@ -1,0 +1,70 @@
+version = 0
+manifest_hash = "a4dbf0819a59e214"
+
+[dependencies.anyhow]
+name = "anyhow"
+version = "1.0.104"
+kind = "rust"
+source = "crates.io"
+checksum = "330a5ed07fa54e4702c9d6c4174f74427fc0ef6e214bbd677ae50a5099946470"
+
+[dependencies.saturnite-stdlib]
+name = "saturnite-stdlib"
+version = "0.1.0"
+kind = "saturnite"
+
+[dependencies.serde]
+name = "serde"
+version = "1.0.229"
+kind = "rust"
+source = "crates.io"
+checksum = "4148590afebada386688f18773da617792bf2ef03ffc1e4cbd2b1d45b023e0ba"
+
+[dependencies.serde_json]
+name = "serde_json"
+version = "1.0.151"
+kind = "rust"
+source = "crates.io"
+checksum = "c841b55ecdae098c80dcae9cf767f6f8a0c2cdb3416bbef72181df4d0fe73f14"
+
+[dependencies.tokio]
+name = "tokio"
+version = "1.53.3"
+kind = "rust"
+source = "crates.io"
+checksum = "ce3335fa71841cda333a58d7615b03901380ecf09d59b3296d21f8bbac0dde4e"
+
+[dependencies.tokio-tungstenite]
+name = "tokio-tungstenite"
+version = "0.21.0"
+kind = "rust"
+source = "crates.io"
+checksum = "c83b561d025642014097b66e6c1bb422783339e0909e4429cde4749d1990bc38"
+
+[dependencies.tracing]
+name = "tracing"
+version = "0.1.44"
+kind = "rust"
+source = "crates.io"
+checksum = "63e71662fa4b2a2c3a26f570f037eb95bb1f85397f3cd8076caed2f026a6d100"
+
+[dependencies.tracing-subscriber]
+name = "tracing-subscriber"
+version = "0.3.23"
+kind = "rust"
+source = "crates.io"
+checksum = "cb7f578e5945fb242538965c2d0b04418d38ec25c79d160cd279bf0731c8d319"
+
+[dependencies.tungstenite]
+name = "tungstenite"
+version = "0.21.0"
+kind = "rust"
+source = "crates.io"
+checksum = "9ef1a641ea34f399a848dea702823bbecfb4c486f911735368f1f137cb8257e1"
+
+[dependencies.uuid]
+name = "uuid"
+version = "1.16.0"
+kind = "rust"
+source = "crates.io"
+checksum = "458f7a779bf54acc9f347480ac654f68407d3aab21269a6e3c9f922acd9e2da9"

@@ -1,0 +1,35 @@
+{
+  "crate_name": "tracing",
+  "functions": [
+    {
+      "name": "info",
+      "symbol": "sat_tracing_info",
+      "params": ["c_str"],
+      "ret": "i64"
+    },
+    {
+      "name": "warn",
+      "symbol": "sat_tracing_warn",
+      "params": ["c_str"],
+      "ret": "i64"
+    },
+    {
+      "name": "error",
+      "symbol": "sat_tracing_error",
+      "params": ["c_str"],
+      "ret": "i64"
+    },
+    {
+      "name": "debug",
+      "symbol": "sat_tracing_debug",
+      "params": ["c_str"],
+      "ret": "i64"
+    },
+    {
+      "name": "subscriber_set_global_default",
+      "symbol": "sat_tracing_subscriber_set_global_default",
+      "params": ["pointer"],
+      "ret": "i64"
+    }
+  ]
+}

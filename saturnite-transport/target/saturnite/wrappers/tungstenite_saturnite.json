@@ -1,0 +1,77 @@
+{
+  "crate_name": "tungstenite",
+  "functions": [
+    {
+      "name": "Message_new_text",
+      "symbol": "sat_tungstenite_Message_new_text",
+      "params": ["c_str"],
+      "ret": "pointer"
+    },
+    {
+      "name": "Message_new_binary",
+      "symbol": "sat_tungstenite_Message_new_binary",
+      "params": ["pointer", "i64"],
+      "ret": "pointer"
+    },
+    {
+      "name": "Message_new_ping",
+      "symbol": "sat_tungstenite_Message_new_ping",
+      "params": ["pointer", "i64"],
+      "ret": "pointer"
+    },
+    {
+      "name": "Message_new_pong",
+      "symbol": "sat_tungstenite_Message_new_pong",
+      "params": ["pointer", "i64"],
+      "ret": "pointer"
+    },
+    {
+      "name": "Message_new_close",
+      "symbol": "sat_tungstenite_Message_new_close",
+      "params": ["pointer"],
+      "ret": "pointer"
+    },
+    {
+      "name": "Message_is_text",
+      "symbol": "sat_tungstenite_Message_is_text",
+      "params": ["pointer"],
+      "ret": "i64"
+    },
+    {
+      "name": "Message_is_binary",
+      "symbol": "sat_tungstenite_Message_is_binary",
+      "params": ["pointer"],
+      "ret": "i64"
+    },
+    {
+      "name": "Message_is_ping",
+      "symbol": "sat_tungstenite_Message_is_ping",
+      "params": ["pointer"],
+      "ret": "i64"
+    },
+    {
+      "name": "Message_is_pong",
+      "symbol": "sat_tungstenite_Message_is_pong",
+      "params": ["pointer"],
+      "ret": "i64"
+    },
+    {
+      "name": "Message_is_close",
+      "symbol": "sat_tungstenite_Message_is_close",
+      "params": ["pointer"],
+      "ret": "i64"
+    },
+    {
+      "name": "Message_text",
+      "symbol": "sat_tungstenite_Message_text",
+      "params": ["pointer"],
+      "ret": "c_str"
+    },
+    {
+      "name": "Message_binary",
+      "symbol": "sat_tungstenite_Message_binary",
+      "params": ["pointer"],
+      "ret": "pointer"
+    }
+  ]
+}
