@@ -27,6 +27,7 @@ from agent.prompt_builder import (
     TOOL_USE_ENFORCEMENT_GUIDANCE, TOOL_USE_ENFORCEMENT_MODELS, drain_truncation_warnings,
 )
 from agent import prompt_builder as _pb
+from agent.adaptive_personality import build_personality_block_from_store
 from agent.runtime_cwd import resolve_agent_cwd, resolve_context_cwd
 from hermes_constants import get_default_hermes_root, get_hermes_home
 from utils import is_truthy_value
@@ -531,6 +532,15 @@ def _memory_parts(agent: Any) -> list[str]:
             block = agent._memory_store.format_for_system_prompt(kind) if enabled else None
             if block:
                 parts.append(block)
+        # Adaptive Personality: render explicit user preferences as a
+        # dedicated volatile-tier block. Always included when preferences
+        # exist, independent of the plain user-profile block above.
+        try:
+            _personality_block = build_personality_block_from_store(agent._memory_store)
+        except Exception:
+            _personality_block = None
+        if _personality_block:
+            parts.append(_personality_block)
     # External memory provider system prompt block (additive to built-in). Gated on the same check
     # ``inject_memory_provider_tools`` uses so we never advertise provider tools that the agent's toolset
     # configuration has already gated off (#81014).

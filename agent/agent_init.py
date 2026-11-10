@@ -29,6 +29,7 @@ from agent.agent_runtime_helpers import _ra
 from agent.iteration_budget import IterationBudget, normalize_budget_warning_ratio
 from agent.memory_context import StreamingContextScrubber
 from agent.memory_provider import is_core_memory_provider
+from agent.adaptive_personality import AdaptivePersonalityManager
 from agent.session_activity import ActivityProvenance
 from agent.model_metadata import (
     MINIMUM_CONTEXT_LENGTH, fetch_model_metadata, is_local_endpoint
@@ -1159,6 +1160,7 @@ def _init_memory(agent, _agent_cfg, skip_memory, platform, memory_manager=None):
     agent._user_profile_enabled = False
     agent._memory_nudge_interval = 10
     agent._turns_since_memory = 0
+    agent._adaptive_personality = None
     agent._iters_since_skill = 0
     from agent.safe_worker_policy import safe_worker_enabled
 
@@ -1200,6 +1202,12 @@ def _init_memory(agent, _agent_cfg, skip_memory, platform, memory_manager=None):
                     user_profile_enabled=agent._user_profile_enabled,
                 )
                 agent._memory_store.load_from_disk()
+                # Adaptive Personality: build the explicit-preference manager
+                # from the loaded USER.md entries. Preferences are surfaced in
+                # the volatile prompt tier by _memory_parts().
+                if agent._user_profile_enabled:
+                    agent._adaptive_personality = AdaptivePersonalityManager(agent._memory_store)
+                    agent._adaptive_personality.load()
 
     # External memory provider plugin (one at a time, alongside built-in): memory.provider.
     agent._memory_manager = None
