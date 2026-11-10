@@ -1,0 +1,10 @@
+[package]
+name = "serde-saturnite-wrapper"
+version = "1.0.229"
+edition = "2021"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+serde = "1.0.229"

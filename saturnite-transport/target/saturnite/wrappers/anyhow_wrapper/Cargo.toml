@@ -1,0 +1,10 @@
+[package]
+name = "anyhow-saturnite-wrapper"
+version = "1.0.104"
+edition = "2021"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+anyhow = "1.0.104"

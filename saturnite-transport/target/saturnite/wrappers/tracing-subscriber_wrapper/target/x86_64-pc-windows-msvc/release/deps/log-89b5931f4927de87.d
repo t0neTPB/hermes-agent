@@ -1,0 +1,10 @@
+C:\Users\atimo\hermes-agent\saturnite-transport\target\saturnite\wrappers\tracing-subscriber_wrapper\target\x86_64-pc-windows-msvc\release\deps\log-89b5931f4927de87.d: C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\lib.rs C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\macros.rs C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\serde.rs C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\__private_api.rs
+
+C:\Users\atimo\hermes-agent\saturnite-transport\target\saturnite\wrappers\tracing-subscriber_wrapper\target\x86_64-pc-windows-msvc\release\deps\liblog-89b5931f4927de87.rlib: C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\lib.rs C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\macros.rs C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\serde.rs C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\__private_api.rs
+
+C:\Users\atimo\hermes-agent\saturnite-transport\target\saturnite\wrappers\tracing-subscriber_wrapper\target\x86_64-pc-windows-msvc\release\deps\liblog-89b5931f4927de87.rmeta: C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\lib.rs C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\macros.rs C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\serde.rs C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\__private_api.rs
+
+C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\lib.rs:
+C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\macros.rs:
+C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\serde.rs:
+C:\Users\atimo\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.35\src\__private_api.rs:

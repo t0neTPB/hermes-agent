@@ -1,0 +1,10 @@
+[package]
+name = "tracing-subscriber-saturnite-wrapper"
+version = "0.3.23"
+edition = "2021"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+tracing-subscriber = "0.3.23"

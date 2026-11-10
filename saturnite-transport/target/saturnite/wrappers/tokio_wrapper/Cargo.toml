@@ -1,0 +1,10 @@
+[package]
+name = "tokio-saturnite-wrapper"
+version = "1.53.3"
+edition = "2021"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+tokio = "1.53.3"

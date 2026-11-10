@@ -1,0 +1,10 @@
+[package]
+name = "uuid-saturnite-wrapper"
+version = "1.16.0"
+edition = "2021"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+uuid = "1.16.0"
